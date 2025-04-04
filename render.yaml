@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: market-research-chatbot
+    env: node
+    rootDir: .
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
