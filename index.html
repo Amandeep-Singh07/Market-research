@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Market Research Chatbot</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body class="bg-gray-100 font-sans">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+      <header class="text-center mb-8">
+        <h1 class="text-3xl font-bold text-indigo-600">
+          Market Research Assistant
+        </h1>
+        <p class="text-gray-600 mt-2">
+          Ask questions about market trends, competitors, and consumer insights
+        </p>
+      </header>
+
+      <main class="bg-white rounded-lg shadow-lg overflow-hidden">
+        <div class="flex flex-col h-[600px]">
+          <div id="chat-messages" class="flex-1 overflow-y-auto p-4 space-y-4">
+            <!-- Chat messages will appear here -->
+            <div class="chat-message bot">
+              <div class="flex items-start">
+                <div
+                  class="w-8 h-8 rounded-full bg-indigo-500 flex items-center justify-center text-white"
+                >
+                  <i class="fas fa-robot"></i>
+                </div>
+                <div class="ml-3 bg-indigo-100 p-3 rounded-lg">
+                  <p>
+                    Hello! I'm your market research assistant. How can I help
+                    you today?
+                  </p>
+                  <p class="text-xs text-gray-500 mt-1">
+                    Examples: "What's the market size for electric vehicles?",
+                    "Who are the main competitors in the cloud storage
+                    industry?", "What are the current trends in sustainable
+                    fashion?"
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="border-t border-gray-200 p-4">
+            <form id="chat-form" class="flex space-x-2">
+              <input
+                type="text"
+                id="user-input"
+                class="flex-1 border border-gray-300 rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                placeholder="Ask about market trends, competitors, consumer insights..."
+              />
+              <button
+                type="submit"
+                class="bg-indigo-600 text-white rounded-full w-10 h-10 flex items-center justify-center hover:bg-indigo-700 transition"
+              >
+                <i class="fas fa-paper-plane"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+      </main>
+
+      <div class="mt-6 bg-white rounded-lg shadow-lg p-4">
+        <h2 class="text-xl font-semibold text-indigo-600 mb-3">
+          Research Categories
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+          <button
+            class="topic-btn p-3 bg-indigo-50 hover:bg-indigo-100 rounded-lg text-left transition"
+          >
+            <i class="fas fa-chart-line text-indigo-500 mr-2"></i>Market Trends
+          </button>
+          <button
+            class="topic-btn p-3 bg-indigo-50 hover:bg-indigo-100 rounded-lg text-left transition"
+          >
+            <i class="fas fa-users text-indigo-500 mr-2"></i>Consumer Behavior
+          </button>
+          <button
+            class="topic-btn p-3 bg-indigo-50 hover:bg-indigo-100 rounded-lg text-left transition"
+          >
+            <i class="fas fa-building text-indigo-500 mr-2"></i>Competitors
+          </button>
+          <button
+            class="topic-btn p-3 bg-indigo-50 hover:bg-indigo-100 rounded-lg text-left transition"
+          >
+            <i class="fas fa-globe text-indigo-500 mr-2"></i>Industry Analysis
+          </button>
+          <button
+            class="topic-btn p-3 bg-indigo-50 hover:bg-indigo-100 rounded-lg text-left transition"
+          >
+            <i class="fas fa-dollar-sign text-indigo-500 mr-2"></i>Pricing
+            Strategies
+          </button>
+          <button
+            class="topic-btn p-3 bg-indigo-50 hover:bg-indigo-100 rounded-lg text-left transition"
+          >
+            <i class="fas fa-lightbulb text-indigo-500 mr-2"></i>Innovation
+            Insights
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

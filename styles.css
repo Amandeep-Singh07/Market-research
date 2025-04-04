@@ -1,0 +1,89 @@
+/* Custom scrollbar */
+#chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+#chat-messages::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+#chat-messages::-webkit-scrollbar-thumb {
+  background: #c7d2fe;
+  border-radius: 10px;
+}
+
+#chat-messages::-webkit-scrollbar-thumb:hover {
+  background: #a5b4fc;
+}
+
+/* Animation for new messages */
+.chat-message {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* User and bot message styling */
+.chat-message.user .bg-indigo-100 {
+  background-color: #e0f2fe;
+  border-radius: 18px 18px 0 18px;
+}
+
+.chat-message.bot .bg-indigo-100 {
+  border-radius: 0 18px 18px 18px;
+}
+
+/* Typing indicator animation */
+.typing-indicator span {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #a5b4fc;
+  border-radius: 50%;
+  margin: 0 2px;
+  animation: bounce 1.4s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.typing-indicator span:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .topic-btn {
+    font-size: 0.9rem;
+  }
+
+  #chat-messages {
+    height: 450px;
+  }
+}
