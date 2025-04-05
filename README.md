@@ -1,22 +1,24 @@
-# Market Research Chatbot
+# Market Research Chatbot (AI-Powered)
 
-A web-based chatbot that conducts market research and provides analysis on various industries, trends, and consumer behaviors.
+A web-based chatbot that conducts dynamic market research and provides analysis on various industries, trends, and consumer behaviors using NVIDIA's AI API.
 
 ## Features
 
+- AI-powered responses using NVIDIA's Llama 3.1 model
 - Interactive chat interface to ask market research questions
 - Category buttons for quick access to common research topics
 - Responsive design that works on mobile and desktop
-- Pre-loaded market research data for demonstration purposes
+- Dynamic, data-driven responses based on your specific questions
 - Typing indicators and smooth animations for a modern experience
 
 ## Technologies Used
 
 - HTML5
 - Tailwind CSS for styling
-- JavaScript (Vanilla) for functionality
+- JavaScript for frontend functionality
+- Express.js for backend server
+- OpenAI API client with NVIDIA's LLM service
 - Font Awesome for icons
-- Express.js for deployment server
 
 ## Getting Started
 
@@ -24,8 +26,12 @@ A web-based chatbot that conducts market research and provides analysis on vario
 
 1. Clone or download this repository
 2. Install dependencies with `npm install`
-3. Start the development server with `npm run dev`
-4. Open `http://localhost:3000` in your web browser
+3. Create a `.env` file with your NVIDIA API key:
+   ```
+   NVIDIA_API_KEY=your-api-key-here
+   ```
+4. Start the development server with `npm run dev`
+5. Open `http://localhost:3000` in your web browser
 
 ### Deployment on Render
 
@@ -39,22 +45,33 @@ A web-based chatbot that conducts market research and provides analysis on vario
    - Root Directory: Leave blank (this uses the repository root)
    - Build Command: `npm install`
    - Start Command: `npm start`
-6. Click "Create Web Service"
-7. Your app will be deployed in a few minutes at a URL like `https://market-research-chatbot.onrender.com`
+6. Add the environment variable:
+   - NVIDIA_API_KEY (your NVIDIA API key)
+7. Click "Create Web Service"
+8. Your app will be deployed in a few minutes at a URL like `https://market-research-chatbot.onrender.com`
 
 ## Project Structure
 
 ```
 market-research-chatbot/
-├── src/                # Source files
+├── src/                # Frontend source files
 │   ├── index.html      # Main HTML file
 │   ├── styles.css      # CSS styles
-│   └── script.js       # JavaScript logic
-├── server.js           # Express server for deployment
+│   └── script.js       # Frontend JavaScript
+├── server.js           # Express server & API integration
 ├── package.json        # NPM package configuration
 ├── render.yaml         # Render deployment configuration
 └── README.md           # Project documentation
 ```
+
+## API Integration
+
+This chatbot uses NVIDIA's AI services through their API. The backend:
+
+1. Receives user queries from the frontend
+2. Sends them to NVIDIA's AI model with market research context
+3. Returns the AI-generated responses to the frontend
+4. Presents the information in a user-friendly format
 
 ## Troubleshooting Deployment
 
@@ -65,15 +82,15 @@ If you encounter errors during deployment, try these solutions:
 - Make sure your package.json is in the repository root (not in a subdirectory)
 - Verify the rootDir setting in render.yaml points to where package.json is located
 
-### Error: Cannot find module 'express'
+### Error: Cannot find module 'express' or 'openai'
 
 - Check if dependencies are properly installed by running `npm install` locally
 - Verify the build command is correctly set to `npm install`
 
-### Error: Port already in use
+### Error: API key related issues
 
-- The app uses the PORT environment variable, which Render sets automatically
-- For local development, make sure port 3000 is available or change it in server.js
+- Ensure the NVIDIA_API_KEY environment variable is set correctly in Render
+- Check the API key permissions and quotas in your NVIDIA account
 
 ## How to Use
 
@@ -92,10 +109,10 @@ If you encounter errors during deployment, try these solutions:
 
 ## Future Improvements
 
-- Connect to actual market research APIs for real-time data
-- Add user authentication for personalized research
-- Implement machine learning for better query understanding
-- Support data visualization for market statistics
+- Fine-tune the AI model for more accurate market research responses
+- Add data visualization for market statistics
+- Implement user authentication for personalized research
+- Enable saving of conversation history
 - Add export functionality for research reports
 
 ## License
