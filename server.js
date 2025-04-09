@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const { OpenAI } = require("openai");
+require("dotenv").config();
 const app = express();
 
 // Set the port based on environment variable or default to 3000
@@ -8,9 +9,7 @@ const PORT = process.env.PORT || 3000;
 
 // Initialize OpenAI with NVIDIA API
 const openai = new OpenAI({
-  apiKey:
-    process.env.NVIDIA_API_KEY ||
-    "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",
+  apiKey: process.env.NVIDIA_API_KEY,
   baseURL: "https://integrate.api.nvidia.com/v1",
 });
 
