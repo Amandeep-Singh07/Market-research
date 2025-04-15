@@ -222,6 +222,26 @@ button[type="submit"]:hover {
   font-size: 0.95rem;
 }
 
+/* Off-topic message styling */
+.off-topic-message {
+  background-color: #fff3cd;
+  border-left: 4px solid #ffc107;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.off-topic-message h2 {
+  color: #856404;
+  margin-top: 0;
+  margin-bottom: 0.75rem;
+}
+
+.off-topic-message p {
+  color: #665e42;
+  margin-bottom: 0.5rem;
+}
+
 /* Main section headings */
 .main-heading {
   color: #4338ca;

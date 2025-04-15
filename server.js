@@ -249,10 +249,73 @@ function processContentBlocks(text) {
   }
 }
 
+// Function to check if a query is related to market research
+function isMarketRelatedQuery(query) {
+  const marketTerms = [
+    "market",
+    "industry",
+    "consumer",
+    "competitor",
+    "business",
+    "trend",
+    "analysis",
+    "research",
+    "sales",
+    "pricing",
+    "product",
+    "strategy",
+    "customer",
+    "segment",
+    "niche",
+    "demographic",
+    "brand",
+    "advertising",
+    "marketing",
+    "revenue",
+    "growth",
+    "forecast",
+    "economy",
+    "sector",
+    "company",
+    "startup",
+    "investment",
+    "stock",
+    "share",
+    "profit",
+    "retail",
+    "wholesale",
+    "supply",
+    "demand",
+    "commerce",
+    "trade",
+    "B2B",
+    "B2C",
+  ];
+
+  const lowerQuery = query.toLowerCase();
+  return marketTerms.some((term) => lowerQuery.includes(term));
+}
+
 // API endpoint for chat completions
 app.post("/api/chat", async (req, res) => {
   try {
     const userMessage = req.body.message;
+
+    // Check if the query is related to market research
+    if (!isMarketRelatedQuery(userMessage)) {
+      // Return a friendly response for non-market related queries
+      const nonMarketResponse = `
+        <div class="off-topic-message">
+          <h2 class="main-heading">Not Market Research Related</h2>
+          <p class="content-paragraph">I'm designed to assist specifically with market research questions. 
+          Your question doesn't appear to be related to market research, industry analysis, 
+          consumer insights, or business strategy.</p>
+          <p class="content-paragraph">Please try asking about market trends, competitor analysis, 
+          consumer behavior, industry forecasts, or business strategies instead.</p>
+        </div>
+      `;
+      return res.json({ response: nonMarketResponse });
+    }
 
     // Create a market research context
     const systemPrompt = `You are an expert market research assistant. 
